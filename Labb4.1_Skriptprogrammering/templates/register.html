@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Labb 4</title>
+</head>
+<body>
+  <main>
+    <h2>Registrera dig</h2>
+    <p><strong>Obligatoriskt fält *</strong></p>
+    <form action="#" method="post">
+      <select name="Betalsatt" id="Betalsatt" required>
+        {% for option in form.Betalsatt %}
+            {% if loop.first %}
+                <option value="" disabled selected hidden>välj betalsätt</option>
+            {% endif %}
+            {{ option }}
+        {% endfor %}
+    </select>
+      <p>
+        {{form.Fornamn.label}}<strong>*</strong><br>
+        {{form.Fornamn(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Efternamn.label}}<strong>*</strong><br>
+        {{form.Efternamn(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Adress.label}}<strong>*</strong><br>
+        {{form.Adress(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Postnummer.label}}{{form.Ort.label}}<strong>*</strong><br>
+        {{form.Postnummer(size=30, required='required')}}{{form.Ort(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Mobil.label}}<strong>*</strong><br>
+        {{form.Mobil(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.E_post.label}}<strong>*</strong><br>
+        {{form.E_post(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Losenord.label}}<strong>*</strong><br>
+        {{form.Losenord(size=30, required='required')}}
+      </p>
+      <p>
+        {{form.Erbjudandedn_via_e_post.label}}
+        {{form.Erbjudandedn_via_e_post()}}
+      </p>
+      <p>
+        {{form.E_postformat.label}}<strong>*</strong>
+        {{form.E_postformat(required='required')}}
+      </p>
+      <p>
+        {{form.Kommentarer.label}}<br>
+        {{form.Kommentarer(placeholder="Skriv här...")}}
+      </p>
+      <p><input type="reset"></p>
+      <p><input type="submit" name="submit"></p>
+    </form>
+  </main>
+</body>
+</html>
